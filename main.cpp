@@ -30,10 +30,11 @@ int main(int argc, char* argv[]) {
     start = clock();
     srand(time(0));
     Container *container = new Container();
-    if(argc != 3 && strcmp(argv[1], "-r")) {
-        std::cout << "Incorrect input data" << "\n";
-        printf("Elapsed: %f\n", difftime(end, start) / CLOCKS_PER_SEC);
-        return 1;
+    if(argc < 3) {
+            std::cout << "Incorrect input data" << "\n";
+            printf("Elapsed: %f\n", difftime(end, start) / CLOCKS_PER_SEC);
+            return 1;
+
     } else if (argc == 3) {
         int status_code = container->Read(GetInputFile(argv));
         if (status_code != 1) {
